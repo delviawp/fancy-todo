@@ -57,7 +57,7 @@ _Response (201)_
 _Response (400 - Bad Request)_
 ```
 { 
-    "message": "Input the right email/ password can't be empty"
+    "message": "Input the right email/ password"
 }
 ```
 ---
@@ -143,6 +143,10 @@ _Response (200)_
   }
 ]
 ```
+```
+_Response (400 - Bad request)_
+```
+
 ---
 ## POST /todos
 > Create Todo List
@@ -172,6 +176,11 @@ _Response (201)_
   "updatedAt": "2020-06-13T08:32:40.126Z"
 }
 ```
+
+```
+_Response (400 - Bad request)_
+```
+
 ---
 ## DELETE /todos/:id
 > Delete Todo List
@@ -199,6 +208,11 @@ _Response (200)_
   "updatedAt": "2020-06-13T08:32:40.126Z"
 }
 ```
+
+```
+_Response (400 - Bad request)_
+```
+
 ---
 ## GET /todos/:id
 > Get data from selected id
@@ -226,6 +240,11 @@ _Response (200)_
   "updatedAt": "2020-06-13T08:32:40.126Z"
 }
 ```
+
+```
+_Response (400 - Bad request)_
+```
+
 ---
 ## PUT /todos/:id
 > To submit Form Edit Todos
@@ -261,4 +280,8 @@ _Response (200)_
   "createdAt": "2020-06-13T08:32:40.126Z",
   "updatedAt": "2020-06-13T08:32:40.126Z"
 }
+```
+
+```
+_Response (400 - Bad request)_
 ```

@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "firebase-tools": "^8.14.1"
+    "firebase-tools": "^8.14.1",
+    "sweetalert2": "^10.10.1"
   },
   "devDependencies": {},
   "scripts": {

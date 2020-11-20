@@ -1,5 +1,6 @@
 const SERVER = "https://fancytodo-delvia.herokuapp.com"
 
+
 $(document).ready(function () {
     const token = localStorage.getItem("token")
     console.log(token)
@@ -52,7 +53,11 @@ function create(e) {
     }).done( response => {
         //console(response)
         showTodos()
-        $("#add-todos").trigger('reset')
+        $("#title-add").val("")
+        $("#description").val("")
+        $("#status").val("")
+        $("#due_date").val("")
+        
     }).fail(err => {
         console.log(err)
     })
@@ -71,14 +76,13 @@ function loginPage() {
     login(e)
 }
 
-function register() {
-    //e.preventDefault()
+function register(e) {
+    e.preventDefault()
     $("#login-page").hide()
     $("#register-page").show()
     //console.log('register')
     const email = $("#email-reg").val()
     const password = $("#password-reg").val()
-
     $.ajax({
         method: "POST",
         url: SERVER + "/register",
@@ -92,15 +96,25 @@ function register() {
         $("#login-page").show()
         $("#register-page").hide()
         $("#edit-form").hide()
+        // Swal.fire({
+        //     icon: "success",
+        //     title: "Success",
+        //     text: "Your account has been registered",
+        //   });
     })
     .fail(err => {
         console.log(err)
+        Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: err.responseJSON.message,
+          })
     })
 }
 
 function login(e) {
     e.preventDefault()
-    console.log('login!')
+    //console.log('login!')
     const email= $("#email").val()
     const password = $("#password").val()
 
@@ -126,6 +140,13 @@ function login(e) {
         addNewTodos()
     }).fail(err => {
         console.log(err)
+        Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: err.responseJSON.message,
+          })
+          $("#email").val("")
+          $("#password").val("")
     })
 }
 
@@ -174,6 +195,11 @@ function showTodos() {
         console.log(todos)
     }).fail(err => {
         console.log(err)
+        Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: err.responseJSON.message,
+          })
     })
 }
 
@@ -204,6 +230,11 @@ function edit(e) {
 
     }).fail(err => {
         console.log(err)
+        Swal.fire({
+            icon: "error",
+            title: "Error",
+            text: err.responseJSON.message,
+          })
     })
 }
 
